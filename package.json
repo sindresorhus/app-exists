@@ -28,9 +28,6 @@
 		"bundleid",
 		"id"
 	],
-	"dependencies": {
-		"run-applescript": "^3.1.0"
-	},
 	"devDependencies": {
 		"ava": "^2.2.0",
 		"tsd": "^0.7.4",
