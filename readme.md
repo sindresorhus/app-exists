@@ -1,14 +1,12 @@
-# app-exists [![Build Status](https://travis-ci.org/sindresorhus/app-exists.svg?branch=master)](https://travis-ci.org/sindresorhus/app-exists)
+# app-exists [![Build Status](https://travis-ci.com/sindresorhus/app-exists.svg?branch=master)](https://travis-ci.com/github/sindresorhus/app-exists)
 
 > Check if an app exists on macOS
-
 
 ## Install
 
 ```
 $ npm install app-exists
 ```
-
 
 ## Usage
 
@@ -27,7 +25,6 @@ const appExists = require('app-exists');
 })();
 ```
 
-
 ## API
 
 ### appExists(bundleIdOrName)
@@ -39,7 +36,6 @@ Returns a `Promise<Boolean>` of whether the app exists on the user's system.
 The [bundle ID](https://developer.apple.com/documentation/bundleresources/information_property_list/cfbundleidentifier) or name of the app.
 
 Prefer specifying bundle ID whenever possible as it's more unique.
-
 
 ## Related
 

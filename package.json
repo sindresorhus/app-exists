@@ -4,16 +4,18 @@
 	"description": "Check if an app exists on macOS",
 	"license": "MIT",
 	"repository": "sindresorhus/app-exists",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
 	"engines": {
 		"node": ">=8"
 	},
 	"scripts": {
-		"test": "xo && ava && tsd"
+		"test": "xo && tsd",
+		"// TODO: Enable test again when using GH Actions": "xo && ava && tsd"
 	},
 	"files": [
 		"index.js",
@@ -26,7 +28,8 @@
 		"applescript",
 		"bundle",
 		"bundleid",
-		"id"
+		"id",
+		"identifier"
 	],
 	"devDependencies": {
 		"ava": "^2.2.0",
