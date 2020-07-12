@@ -1,20 +1,17 @@
 'use strict';
-const runApplescript = require('run-applescript');
+const {execFile} = require('child_process');
+const {promisify} = require('util');
+
+const execFileP = promisify(execFile);
 
 module.exports = async nameOrBundleId => {
-	nameOrBundleId = `"${nameOrBundleId}"`;
-
 	const isBundleId = nameOrBundleId.includes('.');
-	if (!isBundleId) {
-		nameOrBundleId = `(get id of application ${nameOrBundleId})`;
-	}
 
-	const exists = await runApplescript(`
-		try
-			tell application "Finder" to get application file id ${nameOrBundleId}
-			return true
-		end try
-	`);
+	const query = isBundleId ?
+		`kMDItemContentType == 'com.apple.application-bundle' && kMDItemCFBundleIdentifier == '${nameOrBundleId}'` :
+		`kMDItemKind == 'Application' && kMDItemFSName == '${nameOrBundleId}.app'`;
 
-	return exists === 'true';
+	const {stdout: appPath} = await execFileP('mdfind', [query]);
+
+	return Boolean(appPath);
 };
