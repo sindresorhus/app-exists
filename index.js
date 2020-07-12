@@ -9,7 +9,7 @@ module.exports = async nameOrBundleId => {
 
 	const query = isBundleId ?
 		`kMDItemContentType == 'com.apple.application-bundle' && kMDItemCFBundleIdentifier == '${nameOrBundleId}'` :
-		`kMDItemKind == 'Application' && kMDItemFSName == '${nameOrBundleId}.app'c`;
+		`kMDItemKind == 'Application' && kMDItemFSName == '${nameOrBundleId}.app'`;
 
 	const {stdout: appPath} = await execFileP('mdfind', [query]);
 
