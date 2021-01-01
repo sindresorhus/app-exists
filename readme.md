@@ -1,4 +1,4 @@
-# app-exists [![Build Status](https://travis-ci.com/sindresorhus/app-exists.svg?branch=master)](https://travis-ci.com/github/sindresorhus/app-exists)
+# app-exists
 
 > Check if an app exists on macOS
 
