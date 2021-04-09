@@ -1,10 +1,9 @@
-'use strict';
-const {execFile} = require('child_process');
-const {promisify} = require('util');
+import {promisify} from 'util';
+import {execFile} from 'child_process';
 
 const execFileP = promisify(execFile);
 
-module.exports = async nameOrBundleId => {
+export default async function appExists(nameOrBundleId) {
 	const isBundleId = nameOrBundleId.includes('.');
 
 	const query = isBundleId ?
@@ -14,4 +13,4 @@ module.exports = async nameOrBundleId => {
 	const {stdout: appPath} = await execFileP('mdfind', [query]);
 
 	return Boolean(appPath);
-};
+}

@@ -5,20 +5,16 @@ Check if an app exists on macOS.
 
 @example
 ```
-import appExists = require('app-exists');
+import appExists from 'app-exists';
 
-(async () => {
-	console.log(await appExists('com.sindresorhus.Gifski'));
-	//=> true
+console.log(await appExists('com.sindresorhus.Gifski'));
+//=> true
 
-	console.log(await appExists('Gifski'));
-	//=> true
+console.log(await appExists('Gifski'));
+//=> true
 
-	console.log(await appExists('com.sindresorhus.UnicornCakeFun'));
-	//=> false
-})();
+console.log(await appExists('com.sindresorhus.UnicornCakeFun'));
+//=> false
 ```
 */
-declare function appExists(bundleIdOrName: string): Promise<boolean>;
-
-export = appExists;
+export default function appExists(bundleIdOrName: string): Promise<boolean>;

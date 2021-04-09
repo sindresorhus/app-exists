@@ -11,18 +11,16 @@ $ npm install app-exists
 ## Usage
 
 ```js
-const appExists = require('app-exists');
+import appExists from 'app-exists';
 
-(async () => {
-	console.log(await appExists('com.sindresorhus.Gifski'));
-	//=> true
+console.log(await appExists('com.sindresorhus.Gifski'));
+//=> true
 
-	console.log(await appExists('Gifski'));
-	//=> true
+console.log(await appExists('Gifski'));
+//=> true
 
-	console.log(await appExists('com.sindresorhus.UnicornCakeFun'));
-	//=> false
-})();
+console.log(await appExists('com.sindresorhus.UnicornCakeFun'));
+//=> false
 ```
 
 ## API

@@ -1,5 +1,5 @@
 import test from 'ava';
-import appExists from '.';
+import appExists from './index.js';
 
 test('bundle ID', async t => {
 	t.true(await appExists('com.apple.Safari'));

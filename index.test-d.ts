@@ -1,4 +1,4 @@
 import {expectType} from 'tsd';
-import appExists = require('.');
+import appExists from './index.js';
 
-expectType<Promise<boolean>>(appExists("com.sindresorhus.Gifski"));
+expectType<Promise<boolean>>(appExists('com.sindresorhus.Gifski'));
