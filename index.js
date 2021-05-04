@@ -9,7 +9,7 @@ export default async function appExists(nameOrBundleId) {
 		'/Applications',
 		'~/Applications'
 	];
-	const pathArgs = paths.map(path => ['-onlyin', path]).flat();
+	const pathArgs = paths.flatMap(path => ['-onlyin', path]);
 
 	const query = isBundleId ?
 		`kMDItemContentType == 'com.apple.application-bundle' && kMDItemCFBundleIdentifier == '${nameOrBundleId}'` :
