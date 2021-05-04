@@ -5,12 +5,17 @@ const execFileP = promisify(execFile);
 
 export default async function appExists(nameOrBundleId) {
 	const isBundleId = nameOrBundleId.includes('.');
+	const paths = [
+		'/Applications',
+		'~/Applications'
+	];
+	const pathArgs = paths.map(path => ['-onlyin', path]).flat();
 
 	const query = isBundleId ?
 		`kMDItemContentType == 'com.apple.application-bundle' && kMDItemCFBundleIdentifier == '${nameOrBundleId}'` :
 		`kMDItemKind == 'Application' && kMDItemFSName == '${nameOrBundleId}.app'`;
 
-	const {stdout: appPath} = await execFileP('mdfind', [query]);
+	const {stdout: appPath} = await execFileP('mdfind', [query, ...pathArgs]);
 
 	return Boolean(appPath);
 }
