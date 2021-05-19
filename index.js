@@ -7,7 +7,7 @@ export default async function appExists(nameOrBundleId) {
 	const isBundleId = nameOrBundleId.includes('.');
 	const paths = [
 		'/Applications',
-		'~/Applications'
+                process.env.HOME + '/Applications'
 	];
 	const pathArgs = paths.flatMap(path => ['-onlyin', path]);
 
