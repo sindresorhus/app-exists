@@ -9,8 +9,8 @@ export default async function appExists(nameOrBundleId) {
 	const isBundleId = nameOrBundleId.includes('.');
 
 	const paths = [
-		'/Applications',
-		path.join(homedir(), 'Applications')
+		path.join(homedir(), 'Applications'),
+		'/Applications'
 	];
 
 	const pathArgs = paths.flatMap(path => ['-onlyin', path]);
